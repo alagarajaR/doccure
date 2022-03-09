@@ -1,21 +1,16 @@
 import React from "react";
-import config from 'config';
+import config from "config";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Header from "./client/components/header.jsx";
 import Footer from "./client/components/footer.jsx";
-import TopHeader from  './client/components/topheader.jsx';
+import TopHeader from "./client/components/topheader.jsx";
 import LoginContainer from "./client/components/login/login.jsx";
 import Register from "./client/components/register/register.jsx";
 import ForgotPassword from "./client/components/forgot-password";
 import Home from "./client/components/home/index";
 import Home1 from "./client/components/home/home1";
-import Home2 from "./client/components/home/home2";
 import HomeSlider1 from "./client/components/home/homeslider1";
 import HomeSlider2 from "./client/components/home/homeslider2";
-import Home4 from "./client/components/home/home4";
-import Home6 from "./client/components/home/home6";
-import Home7 from "./client/components/home/home7";
-import Home8 from "./client/components/home/home8";
 
 //blog
 import BlogList from "./client/components/blog/bloglist";
@@ -70,9 +65,7 @@ import ProductDescription from "./client/components/Pharmacy/productdescription"
 import ProductCheckout from "./client/components/Pharmacy/productcheckout";
 import PayoutSuccess from "./client/components/Pharmacy/payoutsuccess";
 
-
 import AppUniversal from "./admin/app-universal";
-import PharmacyadminApp from "./pharmacyadmin/app-universal";
 import BlankPage from "./client/components/pages/blankpage/index.jsx";
 
 const AppContainer = function (props) {
@@ -87,17 +80,17 @@ const AppContainer = function (props) {
               <Route path="/admin" component={AppUniversal} />
             </Switch>
           </div>
-        ) : 
-        url === "pharmacyadmin" ? (
+        ) : url === "pharmacyadmin" ? (
           <div>
             <Switch>
               <Route path="/pharmacyadmin" exact component={PharmacyadminApp} />
             </Switch>
           </div>
-        ) :
-        (
+        ) : (
           <div>
-            { url === "homeslider1" && <Route render={(props)=> <TopHeader {...props}/>} />}
+            {url === "homeslider1" && (
+              <Route render={(props) => <TopHeader {...props} />} />
+            )}
             <Route render={(props) => <Header {...props} />} />
             <Switch>
               <Route path="/patient/doctor-grid" exact component={DoctorGrid} />
@@ -109,15 +102,10 @@ const AppContainer = function (props) {
               <Route path="/login" exact component={LoginContainer} />
               <Route path="/register" exact component={Register} />
               <Route path="/forgot-password" exact component={ForgotPassword} />
-              <Route path="(/|/home)" exact component={Home} />	
-              <Route path="/home1" exact component={Home1} />	
-              <Route path="/home2" exact component={Home2} />	
-              <Route path="/homeslider1" exact component={HomeSlider1} />	
+              <Route path="(/|/home)" exact component={Home} />
+              <Route path="/home1" exact component={Home1} />
+              <Route path="/homeslider1" exact component={HomeSlider1} />
               <Route path="/homeslider2" exact component={HomeSlider2} />
-              <Route path="/home4" exact component={Home4} />
-              <Route path="/home6" exact component={Home6} />
-              <Route path="/home7" exact component={Home7} />
-              <Route path="/home8" exact component={Home8} />
 
               {/* blog */}
               <Route path="/blog/blog-list" exact component={BlogList} />
@@ -130,8 +118,8 @@ const AppContainer = function (props) {
                 exact
                 component={SearchDoctor}
               />
-                <Route path="/pages/component" exact component={Components} />
-                <Route path="/pages/blank-page" exact component={BlankPage} />
+              <Route path="/pages/component" exact component={Components} />
+              <Route path="/pages/blank-page" exact component={BlankPage} />
               <Route path="/pages/calendar" exact component={Calendar} />
               <Route path="/pages/invoice" exact component={Invoice} />
               <Route path="/pages/invoice-view" exact component={InvoiceView} />
@@ -155,11 +143,27 @@ const AppContainer = function (props) {
                 component={BookingSuccess}
               />
               <Route path="/patient/dashboard" exact component={Dashboard} />
-              <Route path="/patient/dependent" exact component={PatientDependent} />
-              <Route path="/patient/accounts" exact component={PatientAccounts} />
+              <Route
+                path="/patient/dependent"
+                exact
+                component={PatientDependent}
+              />
+              <Route
+                path="/patient/accounts"
+                exact
+                component={PatientAccounts}
+              />
               <Route path="/patient/orders" exact component={Orders} />
-              <Route path="/patient/medicalrecords" exact component={MedicalRecords} />
-              <Route path="/patient/medicaldetails" exact component={MedicalDetails} />
+              <Route
+                path="/patient/medicalrecords"
+                exact
+                component={MedicalRecords}
+              />
+              <Route
+                path="/patient/medicaldetails"
+                exact
+                component={MedicalDetails}
+              />
               <Route path="/patient/favourites" exact component={Favourties} />
               <Route path="/patient/profile" exact component={Profile} />
               <Route
@@ -213,15 +217,39 @@ const AppContainer = function (props) {
               />
               <Route path="/terms" exact component={Terms} />
               <Route path="/privacy-policy" exact component={Policy} />
-              {/* Pharmacy */}              
-              <Route path="/Pharmacy/Pharmacy-index" exact component={Pharmacy} />
-              <Route path="/Pharmacy/Pharmacy-details" exact component={pharmacydetail} />
-              <Route path="/Pharmacy/pharmacy-search" exact component={PharmacySearch} />
+              {/* Pharmacy */}
+              <Route
+                path="/Pharmacy/Pharmacy-index"
+                exact
+                component={Pharmacy}
+              />
+              <Route
+                path="/Pharmacy/Pharmacy-details"
+                exact
+                component={pharmacydetail}
+              />
+              <Route
+                path="/Pharmacy/pharmacy-search"
+                exact
+                component={PharmacySearch}
+              />
               <Route path="/Pharmacy/product-all" exact component={Product} />
-              <Route path="/Pharmacy/product-description" exact component={ProductDescription} />
+              <Route
+                path="/Pharmacy/product-description"
+                exact
+                component={ProductDescription}
+              />
               <Route path="/Pharmacy/cart" exact component={Cart} />
-              <Route path="/Pharmacy/product-checkout" exact component={ProductCheckout} />
-              <Route path="/Pharmacy/payment-success" exact component={PayoutSuccess} />
+              <Route
+                path="/Pharmacy/product-checkout"
+                exact
+                component={ProductCheckout}
+              />
+              <Route
+                path="/Pharmacy/payment-success"
+                exact
+                component={PayoutSuccess}
+              />
             </Switch>
             <Route render={(props) => <Footer {...props} />} />
           </div>
