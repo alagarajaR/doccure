@@ -23,7 +23,7 @@ class DoctorDashboard extends Component {
     this.state = {
       key: 1,
       todayapptData: [],
-      allapptData: [],
+      upcapptData: [],
     };
     this.handleSelect = this.handleSelect.bind(this);
   }
@@ -34,12 +34,12 @@ class DoctorDashboard extends Component {
 
   componentDidMount() {
     this.setState({
-      allapptData: getAppointmentDetails.getApptDetails(2),
+      upcapptData: getAppointmentDetails.getApptDetails(2),
     });
     this.setState({
       todayapptData: getAppointmentDetails.getApptDetails(1),
     });
-    console.log("All App Data" + this.state.allapptData);
+    console.log("All App Data" + this.state.upcapptData);
     console.log("Today App Data" + this.state.todayapptData);
   }
 
@@ -217,7 +217,7 @@ class DoctorDashboard extends Component {
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      {this.state.allapptData.map(
+                                      {this.state.upcapptData.map(
                                         (appdata, key) => (
                                           <tr>
                                             <td>

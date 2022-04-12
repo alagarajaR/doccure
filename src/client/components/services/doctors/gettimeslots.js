@@ -1,19 +1,16 @@
-import { todayapptData, upcapptData } from "./apptdata";
+import { slotdata } from "./apptdata";
 //import axios from "axios";
 
 const filter = {
-  today: 1,
-  upc: 2, // upcoming appointments
-  app: 3,
-  mypat: 4,
+  thisweek: 1,
 };
 
 export default {
   // Search Filter Enum
 
   getApptDetails: (fitler) => {
-    if (fitler == filter.today) {
-      return todayapptData;
+    if (fitler == filter.thisweek) {
+      return slotdata;
     } else if (fitler == filter.upc) {
       return upcapptData;
     } else if (fitler == filter.app) {
